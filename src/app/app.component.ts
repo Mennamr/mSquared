@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FlowbiteService } from './shared/services/flowbite.service';
+import { initFlowbite } from 'flowbite';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,13 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'msquared';
+  _flowbiteService=inject(FlowbiteService);
+
+  ngOnInit(): void {
+       this._flowbiteService.loadFlowbite((flowbite) => {
+      initFlowbite();
+    });
+  }
 }
