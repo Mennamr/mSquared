@@ -1,0 +1,1 @@
+import{O as o,na as n,oa as a,qa as s,ra as i}from"./chunk-MDFVZAZ5.js";import"./chunk-7CGTOI24.js";var r=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-categories"]],standalone:!0,features:[i],decls:2,vars:0,template:function(e,c){e&1&&(n(0,"p"),s(1,"categories works!"),a())}})};export{r as CategoriesComponent};

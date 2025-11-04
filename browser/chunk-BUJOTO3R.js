@@ -1,0 +1,1 @@
+import{O as t,na as o,oa as i,qa as a,ra as p}from"./chunk-MDFVZAZ5.js";import"./chunk-7CGTOI24.js";var s=class n{static \u0275fac=function(e){return new(e||n)};static \u0275cmp=t({type:n,selectors:[["app-login"]],standalone:!0,features:[p],decls:2,vars:0,template:function(e,l){e&1&&(o(0,"p"),a(1,"login works!"),i())}})};export{s as LoginComponent};

@@ -1,0 +1,12 @@
+{
+  "routes": [
+    "/",
+    "/auth",
+    "/auth/forget-password",
+    "/auth/login",
+    "/brands",
+    "/categories",
+    "/home",
+    "/products"
+  ]
+}

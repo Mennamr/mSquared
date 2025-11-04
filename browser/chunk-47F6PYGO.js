@@ -1,0 +1,1 @@
+import{O as n,na as o,oa as r,qa as s,ra as i}from"./chunk-MDFVZAZ5.js";import"./chunk-7CGTOI24.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-register"]],standalone:!0,features:[i],decls:2,vars:0,template:function(e,m){e&1&&(o(0,"p"),s(1,"register works!"),r())}})};export{a as RegisterComponent};

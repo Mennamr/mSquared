@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{P as o,sa as s,ta as n,va as r,wa as a}from"./chunk-ERTUR5X3.mjs";import"./chunk-5XUXGTUW.mjs";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-forget-password"]],standalone:!0,features:[a],decls:2,vars:0,template:function(e,m){e&1&&(s(0,"p"),r(1,"forget-password works!"),n())}})};export{p as ForgetPasswordComponent};

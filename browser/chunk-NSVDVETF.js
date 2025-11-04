@@ -1,0 +1,1 @@
+import{O as n,na as o,oa as a,qa as p,ra as s}from"./chunk-MDFVZAZ5.js";import"./chunk-7CGTOI24.js";var i=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-not-found"]],standalone:!0,features:[s],decls:2,vars:0,template:function(e,m){e&1&&(o(0,"p"),p(1,"not-found works!"),a())}})};export{i as NotFoundComponent};

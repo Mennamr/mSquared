@@ -1,0 +1,1 @@
+import{O as o,na as n,oa as a,qa as m,ra as s}from"./chunk-MDFVZAZ5.js";import"./chunk-7CGTOI24.js";var p=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-home"]],standalone:!0,features:[s],decls:2,vars:0,template:function(e,r){e&1&&(n(0,"p"),m(1,"home works!"),a())}})};export{p as HomeComponent};
