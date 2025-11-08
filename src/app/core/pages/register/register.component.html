@@ -1,1 +1,91 @@
-<p>register works!</p>
+
+<form [formGroup]="registerForm" class="max-w-md mx-auto" (ngSubmit)="register()">
+  @if(apiError){
+    <div class="flex p-3 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+      {{apiError}}
+    </div>
+      }
+  <div class="relative z-0 w-full mb-5 group">
+    @let nameControl=registerForm.get("name");
+      <input type="text" formControlName="name" name="floating_name" id="floating_name" class="input-style peer" placeholder=" " required />
+      <label for="floating_name" class="peer-focus:font-medium label-style peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
+      
+      @if(nameControl?.errors && nameControl?.touched){
+        <div class="flex p-3 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <ul class=" list-none list-inside">
+            @if(nameControl?.getError("required")){<li>Name is required</li>}
+            @else if(nameControl?.getError("minlength")){<li>At least 3 characters</li>}
+            @else if(nameControl?.getError("maxlength")){<li>At most 30 characters</li>}
+        </ul>
+      </div>  
+      }
+    </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+      @let emailControl=registerForm.get("email");
+      <input type="email" formControlName="email" name="floating_email" id="floating_Email" class="input-style peer" placeholder=" " required />
+      <label for="floating_Email" class="peer-focus:font-medium label-style peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+    
+      @if(emailControl?.errors && emailControl?.touched){
+        <div class="flex p-3 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <ul class="list-none list-inside">
+            @if(emailControl?.getError("required")){<li>Email is required</li>}
+            @else if(emailControl?.getError("email")){<li>Enter a valid email</li>}
+        </ul>
+      </div>  
+      }
+  </div>
+
+
+  <div class="relative z-0 w-full mb-5 group">
+      @let passwordControl=registerForm.get("password");
+      <input type="password" formControlName="password" name="floating_Password" id="floating_Password" class="input-style peer" placeholder=" " required />
+      <label for="floating_Password" class="peer-focus:font-medium label-style peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+      @if(passwordControl?.errors && passwordControl?.touched){
+          <div class="flex p-3 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+          <ul class="list-none list-inside">
+              @if(passwordControl?.getError("required")){<li>Password is required</li>}
+              @else if(passwordControl?.getError("pattern")){<li>Password must start with a capital letter and contain at least 6 characters</li>}
+          </ul>
+        </div>  
+        }
+  </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+      @let rePasswordControl=registerForm.get("rePassword");
+      <input type="password" formControlName="rePassword" name="floating_rePassword" id="floating_rePassword" class="input-style peer" placeholder=" " required />
+      <label for="floating_rePassword" class="peer-focus:font-medium label-style peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Re-enter password</label>
+       @if((rePasswordControl?.errors || registerForm.getError("mismatch")) && rePasswordControl?.touched){
+          <div class="flex p-3 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+          <ul class="list-none list-inside">
+              @if(rePasswordControl?.getError("required")){<li>Retyping your password is required</li>}
+              @else if(registerForm.getError("mismatch")){<li>Passwords don't match</li>}
+          </ul>
+        </div>  
+        }
+  </div>
+ 
+  <div class="relative z-0 w-full mb-5 group">
+      @let phoneControl=registerForm.get("phone");
+      <input type="tel" formControlName="phone" name="floating_phone" id="floating_phone" class="input-style peer" placeholder=" " required />
+      <label for="floating_phone" class="peer-focus:font-medium label-style peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number</label>
+       @if(phoneControl?.errors && phoneControl?.touched){
+          <div class="flex p-3 mb-4 mt-2 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+          <ul class="list-none list-inside">
+              @if(phoneControl?.getError("required")){<li>Phone number is required</li>}
+              @else if(phoneControl?.getError("pattern")){<li>Enter a valid phone number</li>}
+          </ul>
+        </div>  
+        }
+  </div>
+
+  
+  <button type="submit" class="main-btn">
+    @if(isCallingAPI){
+      <i class="fa fa-spin fa-spinner"></i>
+    }
+    @else{Submit}
+    
+    </button>
+
+</form>
