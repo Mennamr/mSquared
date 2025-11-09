@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,6 +17,8 @@ export class LoginComponent implements OnInit {
     apiError!:string
     isCallingAPI:boolean=false
     subscription:Subscription=new Subscription() //to navigate without calling the API
+    loginForm!:FormGroup
+    toggleInput=true
     /*loginForm: FormGroup= new FormGroup({
       email:new FormControl(null, [Validators.required, Validators.email]),
       password:new FormControl(null, [Validators.required, Validators.pattern(/^[A-Z]\w{5,}$/)]),
@@ -24,15 +27,13 @@ export class LoginComponent implements OnInit {
       //form builder
 
       _formBuilder=inject(FormBuilder)
-      loginForm!:FormGroup
+      
   
     _authService=inject(AuthService);
     _router=inject(Router)
 
     ngOnInit(): void {
          this.initForm();
-
-      
     }
 
     initForm(){
@@ -72,6 +73,10 @@ export class LoginComponent implements OnInit {
         //}
         
       }
+    }
+
+    togglePassword(){
+      this.toggleInput=!this.toggleInput
     }
   
     ngOnDestroy(): void {
