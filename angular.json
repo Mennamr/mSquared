@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "fileReplacements": [{
+              "replace": "./src/app/environments/environment.ts",
+              "with": "./src/app/environments/environment.prod.ts"
+
+            }],
             "outputPath": "dist/msquared",
             "index": "src/index.html",
             "browser": "src/main.ts",
