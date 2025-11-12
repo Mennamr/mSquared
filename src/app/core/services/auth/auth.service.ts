@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+  userData:any= ''
   _httpClient=inject(HttpClient);
   env=environment.baseURL
 
@@ -19,5 +20,11 @@ export class AuthService {
 
   loginUser(userInfo:LoginUser):Observable<any> {
     return this._httpClient.post(`${this.env}/auth/signin`, userInfo)
+  }
+
+  saveUser(){
+     if(localStorage.getItem("userToken")){
+      this.userData=localStorage.getItem("userToken")
+     }
   }
 }
