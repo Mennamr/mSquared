@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { AuthUser, LoginUser } from '../../interfaces/auth-user';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import {jwtDecode} from 'jwt-decode'
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +13,7 @@ export class AuthService {
   userData:BehaviorSubject<any>= new BehaviorSubject(null)
   _httpClient=inject(HttpClient);
   _router=inject(Router)
+  _PLATFORM_ID=inject(PLATFORM_ID)
   env=environment.baseURL
 
   constructor() { }
@@ -32,14 +34,15 @@ export class AuthService {
      }
   }
 
-  isloggedInUser(): boolean{
-    if(localStorage.getItem("userToken")){
-      this.userData.next(jwtDecode(localStorage.getItem("userToken")!))
-      return true
+ isloggedInUser(): boolean {
+    if (isPlatformBrowser(this._PLATFORM_ID)) {
+      const token = localStorage.getItem("userToken");
+      if (token) {
+        this.userData.next(jwtDecode(token));
+        return true;
+      }
     }
-    else{
-      return false
-    }
+    return false;
   }
 
   logOut(){
