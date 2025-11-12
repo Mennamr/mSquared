@@ -1,4 +1,6 @@
-<div class="product mb-4 group">
+
+  <div class="product mb-4 group">
+  <a [routerLink]="['/productDetails', product._id]" class="product mb-4 group">
   <img [src]="product.imageCover" class = "w-full" [alt]="product.title"/>
   <span class = "text-main"> {{ product.category.name }} </span>
   <h2> {{ product.title.split(' ').splice(0, 3).join(' ') }} </h2>
@@ -6,5 +8,6 @@
     <p>  {{ product.price }} </p>
     <p> <i class ="fa fa-star text-[#F5DA27]"></i> {{ product.ratingsAverage }} </p>
   </div>
+  </a>
 </div>
 <button class="bg-main transition-opacity duration-300 text-white p-2 rounded-md w-[90%] mx-auto block  "> Add to Cart </button>

@@ -13,6 +13,7 @@ export const routes: Routes = [
     {path:"products", loadComponent:()=>import("./features/pages/products/products.component").then(c=>c.ProductsComponent) },
     {path:"categories", loadComponent:()=>import("./features/pages/categories/categories.component").then(c=>c.CategoriesComponent) },
     {path:"cart", loadComponent:()=>import("./features/pages/cart/cart.component").then(c=>c.CartComponent) },
+    {path:"productDetails/:id", loadComponent:()=>import("./features/pages/product-details/product-details.component").then(c=>c.ProductDetailsComponent) },
 
 
 
