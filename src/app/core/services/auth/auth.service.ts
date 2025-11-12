@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { AuthUser, LoginUser } from '../../interfaces/auth-user';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-
+import {jwtDecode} from 'jwt-decode'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userData:any= ''
+  userData:BehaviorSubject<any>= new BehaviorSubject(null)
   _httpClient=inject(HttpClient);
   env=environment.baseURL
 
@@ -24,7 +24,9 @@ export class AuthService {
 
   saveUser(){
      if(localStorage.getItem("userToken")){
-      this.userData=localStorage.getItem("userToken")
+      this.userData.next(jwtDecode(localStorage.getItem("userToken")!))
+      console.log(this.userData);
+      
      }
   }
 }
