@@ -8,9 +8,13 @@ module.exports = {
     extend: {
       colors: {
         main: {
-          DEFAULT: '#0D6EFD', // your main color
+          DEFAULT:'pink', //'#0D6EFD', // your main color
           light: '#479BFF',   // optional lighter shade
-          dark: '#004CBA',    // optional darker shade
+          dark: '#004CBA'   // optional darker shade
+          
+        },
+        grey:{
+          DEFAULT:'#919EAB'
         },
       },
     },
