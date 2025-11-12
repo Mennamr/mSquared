@@ -11,4 +11,7 @@ export class ProductService {
   getRecentProducts(): Observable<any> {
     return this._httpClient.get('https://ecommerce.routemisr.com/api/v1/products');
   }
+  getProductById(id: string): Observable<any> {
+    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`);
+  }
 }
