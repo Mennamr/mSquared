@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  userData:any= ''
   _httpClient=inject(HttpClient);
 
   constructor() { }
@@ -17,5 +18,11 @@ export class AuthService {
 
   loginUser(userInfo:LoginUser):Observable<any> {
     return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`, userInfo)
+  }
+
+  saveUser(){
+     if(localStorage.getItem("userToken")){
+      this.userData=localStorage.getItem("userToken")
+     }
   }
 }

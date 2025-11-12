@@ -60,6 +60,8 @@ export class LoginComponent implements OnInit {
             next:(res)=>{
               console.log(res);
               this.isCallingAPI=false
+              localStorage.setItem("userToken", res.token )
+              this._authService.saveUser();
               this._router.navigate(['/home'])
             },
             error:(err)=>{
