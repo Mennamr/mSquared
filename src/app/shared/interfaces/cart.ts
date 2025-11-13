@@ -22,6 +22,7 @@ export interface Product {
 }
 
 export interface ProductDetails {
+  count:number
 
 
   subCategory: Subcategory[]
