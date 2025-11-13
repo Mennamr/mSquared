@@ -1,1 +1,8 @@
-<p>categories works!</p>
+
+<div class ="grid md:grid-cols-3 gap-4 lg:grid-cols-4 gap-4">
+    @for (category of categories; track $index) {
+    <app-category-item [category]="category"></app-category-item>
+}
+</div>
+
+

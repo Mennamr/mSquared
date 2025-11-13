@@ -1,0 +1,13 @@
+
+<div class ="grid md:grid-cols-3 gap-4 lg:grid-cols-4">
+  @if(products.length>0){
+    @for (product of products; track $index) {
+      
+         <app-product-item [product]="product"></app-product-item>
+    }
+  }
+    @else {
+      <h2 class="col-span-full text-center text-gray-500 text-lg">No items found in this brand</h2>
+    }
+    
+</div>
