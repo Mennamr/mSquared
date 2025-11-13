@@ -23,7 +23,13 @@
         {{ productDetails.ratingsAverage }}
       </p>
     </div>
-    <button class="bg-main transition-opacity duration-300 text-white p-2 rounded-md w-[90%] mx-auto block  "> Add to Cart </button>
+    <button (click)="addToCart(productDetails.id)" class="bg-main transition-opacity duration-300 text-white p-2 rounded-md w-[90%] mx-auto block  "> 
+       @if(isLoading) {
+        <i class="fa fa-spinner fa-spin"></i>
+       } @else {
+        Add to Cart
+       }
+    </button>
 
   </div>
 </div>

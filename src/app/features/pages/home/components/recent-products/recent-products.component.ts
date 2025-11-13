@@ -2,6 +2,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ProductService } from '../../../../../shared/services/product/product.service';
 import { Product } from '../../../../../shared/interfaces/product';
 import { ProductItemComponent } from '../../../../../shared/components/ui/product-item/product-item.component';
+import { CartService } from '../../../../../shared/services/cart/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-recent-products',
@@ -16,6 +18,8 @@ export class RecentProductsComponent implements OnInit {
     this.getProducts$();
   }
 private readonly _productService = inject(ProductService);
+private readonly _cartService = inject(CartService);
+private readonly _toastService = inject(ToastrService);
 getProducts$() {
   this._productService.getRecentProducts().subscribe({
     next: (res) => {
@@ -30,6 +34,18 @@ getProducts$() {
     },
   });
 }
-
-
+addToCart(productId: string) {
+  this._cartService.addToCart(productId).subscribe({
+    next: (res) => {
+      console.log(res);
+      this._toastService.success(res.message, 'Success');
+    },
+    error: (err) => {
+      console.log(err);
+    },
+    complete: () => {
+      console.log('done');
+    },
+  });
+}
 }

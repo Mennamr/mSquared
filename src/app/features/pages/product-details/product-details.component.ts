@@ -4,6 +4,8 @@ import { ProductService } from '../../../shared/services/product/product.service
 import { Product } from '../../../shared/interfaces/product';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CartService } from '../../../shared/services/cart/cart.service';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-details',
@@ -13,8 +15,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrl: './product-details.component.scss'
 })
 export class ProductDetailsComponent implements OnInit {
+  isLoading: boolean = false;
   private readonly _activatedRoute = inject(ActivatedRoute)
   private readonly _productService = inject(ProductService)
+  private readonly _cartService = inject(CartService)
+  private readonly _toastService = inject(ToastrService)
 
   productDetails: Product = {} as Product;
     customOptions: OwlOptions = {
@@ -63,4 +68,17 @@ export class ProductDetailsComponent implements OnInit {
       }
     });
   }  
+
+  addToCart(id: string){
+    this.isLoading = true;
+    this._cartService.addToCart(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.isLoading = false;
+        this._toastService.success(res.message, 'Success');
+      }
+    });
+   
+  }
+  
 }

@@ -45,6 +45,13 @@ export class AuthService {
     return false;
   }
 
+  getToken(){
+    if (localStorage.getItem("userToken")){
+      return localStorage.getItem("userToken")
+    }
+    return '';
+  }
+
   logOut(){
     localStorage.removeItem("userToken")
     this.userData.next(null)

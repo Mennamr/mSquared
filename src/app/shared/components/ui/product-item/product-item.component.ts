@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../../interfaces/product';
 import { RouterLink } from '@angular/router';
 
@@ -7,9 +7,14 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './product-item.component.html',
-  styleUrl: './product-item.component.scss'
+  styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent {
   @Input() product!: Product;
-  //  product = input.required<Product>();
+  @Output() fireAddToCart = new EventEmitter<string>();
+
+  handleAddToCart(productId: string) {
+    console.log(`Adding product with ID: ${productId} to cart`);
+    this.fireAddToCart.emit(productId);
+  }
 }
