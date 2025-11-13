@@ -3,7 +3,7 @@ import { Category } from "./category"
 
 export interface Cart {
   message: string
-  numOfCartItems: number
+  cout: number
   cartId: string
   data: cartData
 }
@@ -22,6 +22,8 @@ export interface Product {
 }
 
 export interface ProductDetails {
+
+
   subCategory: Subcategory[]
     _id: string
     title: string
