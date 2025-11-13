@@ -15,6 +15,7 @@ export class ProductsPerBrandComponent {
     _productService=inject(ProductService)
     private readonly _activatedRoute = inject(ActivatedRoute)
     products: Product[] = [];
+    loading=true;
   
     ngOnInit(): void {
       this.getId()
@@ -29,6 +30,7 @@ export class ProductsPerBrandComponent {
           console.log('brand ID:', brandId);
           this.getDetails(brandId);
         }
+        
       },
     });
   }
@@ -38,6 +40,7 @@ export class ProductsPerBrandComponent {
         next: (res) => {
           console.log("prods by cat" , res);
           this.products = res.data;
+          this.loading=false;
   
         }
       });

@@ -1,6 +1,12 @@
 
 <div class ="grid md:grid-cols-3 gap-4 lg:grid-cols-4">
-  @if(products.length>0){
+  @if(loading){
+     <div class="col-span-full text-center py-10">
+      <div class="loader border-t-4 border-brand rounded-full w-10 h-10 mx-auto animate-spin"></div>
+      <p class="text-gray-500 mt-3">Loading products...</p>
+    </div>
+  }
+  @else if(products.length>0){
     @for (product of products; track $index) {
       
          <app-product-item [product]="product"></app-product-item>
