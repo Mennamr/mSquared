@@ -1,0 +1,30 @@
+<div class="w-full py-8 px-6 flex justify-center">
+
+  <div
+    class="grid gap-6 justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); max-width: 1500px;"
+  >
+    <div
+     
+      class="group h-[420px] bg-white shadow-md rounded-xl overflow-hidden text-center transition-transform hover:scale-105"
+    >
+   
+        <img
+          [src]="brand.image"
+          [alt]="brand.name"
+          class="w-full h-[70%] object-cover"
+        />
+        <div class="p-4 flex-1 flex flex-col justify-between">
+          <span class="text-main font-semibold text-xl block mt-2 text-center">
+            {{ brand.name }}
+          </span>
+          <button [routerLink]="['/products-per-brand', brand._id]"
+            class="bg-main text-white mt-3 py-2 rounded-md w-full transition hover:opacity-90"
+          >
+            Check Products
+          </button>
+        </div>
+ 
+    </div>
+  </div>
+</div>

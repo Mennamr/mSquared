@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AuthLayoutComponent } from './core/layout/auth-layout/auth-layout.component';
 import { authGuard } from './core/guards/auth/auth.guard';
 import { loggedUserGuard } from './core/guards/auth/logged-user.guard';
+import { ProductsPerCategoryComponent } from './features/pages/products-per-category/products-per-category.component';
 
 export const routes: Routes = [
     {path:"auth", component:AuthLayoutComponent, children:[
@@ -16,6 +17,8 @@ export const routes: Routes = [
     {path:"categories", loadComponent:()=>import("./features/pages/categories/categories.component").then(c=>c.CategoriesComponent) },
     {path:"cart", loadComponent:()=>import("./features/pages/cart/cart.component").then(c=>c.CartComponent) },
     {path:"productDetails/:id", loadComponent:()=>import("./features/pages/product-details/product-details.component").then(c=>c.ProductDetailsComponent) },
+    {path: 'products-per-category/:id', loadComponent:()=>import("./features/pages/products-per-category/products-per-category.component").then(c=>c.ProductsPerCategoryComponent)},
+    {path: 'products-per-brand/:id', loadComponent:()=>import("./features/pages/products-per-brand/products-per-brand.component").then(c=>c.ProductsPerBrandComponent)},
 
 
 

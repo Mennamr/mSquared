@@ -6,11 +6,13 @@ import { log } from 'node:console';
 import { NavbarComponent } from './core/layout/auth-layout/navbar/navbar.component';
 import { FooterComponent } from './core/layout/auth-layout/footer/footer.component';
 import { AuthService } from './core/services/auth/auth.service';
+import { NgxSpinnerComponent } from "ngx-spinner";
+import { SpinnerComponent } from "./core/components/spinner/spinner.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, NgxSpinnerComponent, SpinnerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
