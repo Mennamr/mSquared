@@ -1,0 +1,25 @@
+<!--<form class="max-w-sm mx-auto">
+  <label for="categories" class="block mb-2.5 text-sm font-medium text-heading">Select a category</label>
+  <select id="categories" (change)="getSpecificCategory($event)" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+    <option value="all" selected>Choose a category</option>
+    @for (category of categories; track $index){
+        <option [value]="category._id">{{category.name}}</option>
+    }
+  </select>
+</form>
+--->
+
+<h1>Products</h1>
+<div class ="grid md:grid-cols-3 gap-4 lg:grid-cols-4">
+  @if(products.length>0){
+    @for (product of products; track $index) {
+      
+         <app-product-item [product]="product"></app-product-item>
+    }
+  }
+    @else {
+      <h2 class="col-span-full text-center text-gray-500 text-lg">No items found in this category</h2>
+    }
+    
+</div>
+

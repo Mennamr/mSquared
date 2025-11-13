@@ -1,1 +1,5 @@
-<p>brands works!</p>
+<div class="grid md:grid-cols-3 gap-4 lg:grid-cols-4">
+  @for (brand of brands; track $index) {
+  <app-brand-item [brand]="brand"></app-brand-item>
+  }
+</div>
