@@ -36,5 +36,7 @@ export class CheckoutComponent {
     console.log(this.checkoutForm.value); 
   }
 
+  
+
 
 }
