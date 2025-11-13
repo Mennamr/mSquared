@@ -1,6 +1,7 @@
 import { Category } from "./category"
 
 export interface Product {
+  count:number
 
 
   sold: number
