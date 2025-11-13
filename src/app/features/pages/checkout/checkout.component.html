@@ -1,0 +1,81 @@
+<form [formGroup]="checkoutForm">
+<div class = "relative z-0 w-full mb-5 group">
+    @let datailsControl = checkoutForm.get('details');
+    <input 
+    type="text" 
+    formControlName="details" 
+    id="floating_details" 
+    class="input-style peer" 
+    placeholder=" " 
+    required
+    />
+    <label 
+    for="floating_details" 
+    class="label-style peer-focus:left-0 peer-focus:text-main peer-focus:scale-75 peer-focus:-top-6 
+    peer-placeholder-shown:scale">User Details</label>
+
+    @if(datailsControl?.errors && datailsControl?.touched){
+        <div class="text-fg-danger text-sm mt-1" role="alert">
+           <ul class = "mt-1.5 list-disc list-inside">
+            @if(datailsControl?.getError('required')){
+                <li>Details is required.</li>
+            }
+              </ul>
+           
+        </div>
+    }
+</div>
+<div class = "relative z-0 w-full mb-5 group">
+    @let phoneControl = checkoutForm.get('phone');
+    <input 
+    type="text" 
+    formControlName="phone" 
+    id="floating_phone" 
+    class="input-style peer" 
+    placeholder=" " 
+    required
+    />
+    <label 
+    for="floating_phone" 
+    class="label-style peer-focus:left-0 peer-focus:text-main peer-focus:scale-75 peer-focus:-top-6 
+    peer-placeholder-shown:scale">User Phone</label>
+
+    @if(phoneControl?.errors && phoneControl?.touched){
+        <div class="text-fg-danger text-sm mt-1" role="alert">
+           <ul class = "mt-1.5 list-disc list-inside">
+            @if(phoneControl?.getError('required')){
+                <li>Phone is required.</li>
+            }
+              </ul>
+           
+        </div>
+    }
+</div>
+<div class = "relative z-0 w-full mb-5 group">
+    @let emailControl = checkoutForm.get('email');
+    <input 
+    type="text" 
+    formControlName="email" 
+    id="floating_email" 
+    class="input-style peer" 
+    placeholder=" " 
+    required
+    />
+    <label 
+    for="floating_email" 
+    class="label-style peer-focus:left-0 peer-focus:text-main peer-focus:scale-75 peer-focus:-top-6 
+    peer-placeholder-shown:scale">User email</label>
+
+    @if(emailControl?.errors && emailControl?.touched){
+        <div class="text-fg-danger text-sm mt-1" role="alert">
+           <ul class = "mt-1.5 list-disc list-inside">
+            @if(emailControl?.getError('required')){
+                <li>Email is required.</li>
+            }
+              </ul>
+           
+        </div>
+    }
+</div>
+</form>
+     
