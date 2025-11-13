@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
   _httpClient = inject(HttpClient);
+
   token:string = JSON.stringify(localStorage.getItem('userToken'));
 
   constructor() { 
